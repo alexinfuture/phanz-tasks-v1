@@ -1,3 +1,15 @@
+// Add this after creating `app`
+app.use((req, res, next) => {
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Methods', 'GET,POST,PUT,OPTIONS');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+  if (req.method === 'OPTIONS') {
+    return res.end();
+  }
+  next();
+});
+
+
 const express = require('express');
 const path = require('path');
 const { Pool } = require('pg');
