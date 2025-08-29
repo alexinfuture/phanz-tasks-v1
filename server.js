@@ -1,3 +1,12 @@
+const express = require('express');
+const path = require('path');
+const { Pool } = require('pg');
+require('dotenv').config();
+
+// Create Express app
+const app = express();
+const port = process.env.PORT || 3000;
+
 // Add this after creating `app`
 app.use((req, res, next) => {
   res.setHeader('Access-Control-Allow-Origin', '*');
@@ -9,15 +18,6 @@ app.use((req, res, next) => {
   next();
 });
 
-
-const express = require('express');
-const path = require('path');
-const { Pool } = require('pg');
-require('dotenv').config();
-
-// Create Express app
-const app = express();
-const port = process.env.PORT || 3000;
 
 // Parse JSON bodies
 app.use(express.json());
