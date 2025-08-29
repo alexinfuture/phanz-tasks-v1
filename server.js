@@ -20,7 +20,7 @@ app.use(express.static(path.join(__dirname, 'public')));
  * details on setting up your database and environment variables.
  */
 const pool = new Pool({
-  connectionString: process.env.DAT  ABASE_URL,
+  connectionString: process.env.DATABASE_URL,
   ssl: process.env.NODE_ENV === 'production' ? { rejectUnauthorized: false } : false,
 });
 
